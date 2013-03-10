@@ -213,7 +213,7 @@ module.exports = function (grunt) {
             // Task is run when the watched index.template file is modified.
             index: {
                 files: {
-                    './built/': './temp/index.html'
+                    './built/': './temp/*.html'
                 }
             },
             // Task is run when a watched view is modified.
@@ -294,7 +294,7 @@ module.exports = function (grunt) {
                 tasks: 'less copy:styles reload'
             },
             index: {
-                files: './src/index.jade',
+                files: './src/*.jade',
                 tasks: 'jade:dev copy:index reload'
             },
             views: {

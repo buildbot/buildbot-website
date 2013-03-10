@@ -1,0 +1,36 @@
+extends layout/layout-pages
+block hero
+    h1 Nine
+    p
+        | The future
+block text
+    p
+        | Nine is the codename for buildbot 0.9. The goal of this project is to greatly improve the scalability of buildbot based systems
+        | by refactoring the master core code.
+
+    h3 Main goals:
+    p
+        | The 'nine' branch is a refactoring of Buildbot into a consistent, well-defined application composed of loosely coupled components.
+        | The components are linked by a common database backend and a messaging system.
+        | This allows components to be distributed across multiple build masters.
+        | It also allows the rendering of complex web status views to be performed in the browser, rather than on the buildmasters.
+
+    p
+        | The branch looks forward to committing to long-term API compatibility, but does not reach that goal.
+        | The Buildbot-0.9.x series of releases will give the new APIs time to "settle in" before we commit to them.
+        | Commitment will wait for Buildbot-1.0.0 (as per http://semver.org).
+        | Once Buildbot reaches version 1.0.0, upgrades will become much easier for users.
+
+    p
+        | To encourage contributions from a wider field of developers, the web application is designed to look like a normal angular.js application.
+        | Developers familiar with angular.js, but not with Python, should be able to start hacking on the web application quickly.
+        | The web application is "pluggable", so users who develop their own status displays can package those separately from Buildbot itself.
+
+    h3 Other goals:
+    ul
+        li An approachable HTTP REST API, used by the web application but available for any other purpose.
+        li A high degree of coverage by reliable, easily-modified tests.
+        li "Interlocking" tests to guarantee compatibility.
+           p
+               | For example, the real and fake DB implementations must both pass the same suite of tests.
+               | Then no unseen difference between the fake and real implementations can mask errors that will occur in production.
