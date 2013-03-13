@@ -5,29 +5,92 @@ block hero
     | is an
     strong  open-source
     |  CI tool based on python and twisted, designed for great flexibility.
-  p
-    | The configuration file being a python script allows you to use the full power of python
-    | to describe your process.
 block text
   :markdown
-         Buildbot is a continuous integration system designed to automate the
-         build/test cycle. By automatically rebuilding and testing the tree each time
-         something has changed, build problems are pinpointed quickly, before other
-         developers are inconvenienced by the failure.  Features
+    Buildbot is a mature framework for building continuous integration
+    systems. It supports parallel execution of jobs across multiple
+    platforms, flexible integration with version-control systems, extensive
+    status reporting, and more. Beyond the capabilities it shares with
+    similar tools, buildbot has a number of unique strengths and
+    capabilities, some of them particularly geared toward release processes.
+    This paper summarizes Buildbot’s structure, contrasts the framework with
+    related tools, describes some advanced configurations, and highlights
+    ongoing improvements to the framework.
 
-         * Buildbot is easy to set up, but very extensible and customizable.  It
-           supports arbitrary build processes, and is not limited to common build
-           processes for particular languages (e.g., autotools or ant)
+    Introduction
+    ============
 
-         * Buildbot supports building and testing on a variety of platforms.
-           Developers, who do not have the facilities to test their changes everywhere
-           before committing, will know shortly afterwards whether they have broken the
-           build or not.
+    Buildbot is a continuous integration framework in use for [well over 10
+    years](https://raw.github.com/buildbot/buildbot/master/master/docs/relnotes/0.3.1.txt).
+    While it began as a simple build-and-test tool, it
+    has grown into a sophisticated framework supporting continuous
+    integration testing, continuous deployment, and release engineering. Its
+    design allows an installation to grow with its requirements, beginning
+    with a simple configuration and growing into a multi-master
+    configuration with complex coordination of builds, each containing many
+    sophisticated steps. This flexibility has led to its use in a number of
+    high-profile open-source projects, including [Chromium, WebKit, Firefox,
+    Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
 
-         * Buildbot has minimal requirements for slaves: using virtualenv, only a
-           Python installation is required.
+    Buildbot is but one of many tools commonly used for build, test, and
+    release. In such an active ecosystem, each tool has strengths that make
+    it the best choice for certain purposes. Buildbot’s niche is complex
+    applications requiring extensive customization.
 
-         * Slaves can be run behind a NAT firewall and communicate with the master
+    This paper briefly summarizes Buildbot’s structure, as background for
+    the following sections. It then compares the framework to other tools.
+    Next, it describes some of the tool’s unique features and capabilities.
+    It finishes with a description of ongoing work in the Buildbot
+    development community.
 
-         * Buildbot has a variety of status-reporting tools to get information about
-           builds in front of developers in a timely manner.
+    Buildbot’s Structure
+    ====================
+
+    At its core, Buildbot is a job scheduling system: it queues jobs (called
+    *builds* for historical reasons), executes the jobs when the required
+    resources are available, and reports the results. This section briefly
+    summarizes Buildbot’s structure. Refer to the Buildbot
+    [documentation](http://buildbot.net/buildbot/docs/current/manual/introduction.html)
+    for more details.
+
+    Buildbot’s *change sources* watch for commits (generically called
+    *changes*). The framework includes change sources for most common
+    version-control systems, with flexible configuration to support a
+    variety of deployments. *Schedulers* react to new changes from change
+    sources, to external events, or to times (e.g., for a nightly build),
+    and add new *build requests* to the queue.
+
+    Each build request comes with a set of source stamps identifying the
+    code from each codebase that should be used for the build. A *source
+    stamp* represents a particular revision and branch, in a source-code
+    repository. Build requests also specify a *builder* that should perform
+    the task, and a set of and *properties*, arbitrary key-value pairs
+    giving further detail about the requested build. Each *builder* defines
+    the steps to take in executing a particular type of build. Once the
+    request is selected for execution, the steps are executed sequentially.
+    Each build is executed on exactly one slave.
+
+    Buildbot has a distributed master-slave architecture, where the
+    *masters* instruct the *slaves* to perform each step of a build in
+    sequence. The slave portion of Buildbot is platform-independent. Many
+    slaves can be connected to each master, running builds in parallel. A
+    slave may execute multiple builds simultaneously, as long as they are
+    for different builders.
+
+    Once a build is complete, the framework reports the results—log files
+    and step status—to users and developers via *status listeners*. Buildbot
+    has built-in support for reporting via web, email, irc, Tinderbox, and
+    gerrit.
+
+    The Buildbot master and slave are both implemented as Python daemons.
+    Small Buildbot installations are generally composed of one master and
+    tens of slaves. Larger installations run tens of masters with hundreds
+    or thousands of slaves.
+
+    Related Work
+    ============
+
+    The ecosystem of continuous integration testing tools is a busy one. The
+    [Thoughtworks feature matrix](http://confluence.public.thoughtworks.org/display/CC/CI+Feature+Matrix) lists 28 packages, and
+    does not consider cloud-based services such as Travis-CI or TDDium.
+
