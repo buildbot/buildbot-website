@@ -195,7 +195,7 @@ module.exports = function (grunt) {
                     './built/scripts/': './temp/scripts/scripts.min.js',
                     './built/scripts/libs': ['./temp/scripts/libs/html5shiv-printshiv.js', './temp/scripts/libs/json2.js'],
                     './built/styles/': './temp/styles/styles.min.css',
-                    './built/index.html': './temp/index.min.html'
+                    './built/': './temp/min/*.html'
                 }
             },
             // Task is run when a watched script is modified.
@@ -278,7 +278,7 @@ module.exports = function (grunt) {
         minifyHtml: {
             prod: {
                 files: {
-                    './temp/index.min.html': './temp/index.html'
+                    './temp/min/': './temp/*.html'
                 }
             }
         },

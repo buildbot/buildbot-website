@@ -25,42 +25,44 @@ html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
     div.navbar.navbar-fixed.navbar-inverse
       div.navbar-inner
         div.container
-          a.btn.btn-navbar
-            span.icon-bar
+          a.btn.btn-navbar(ng-click="isCollapsed = !isCollapsed")
+            span.icon-angle-down
           a.brand(href="/")
             img#logo(src="img/favicon.ico")
             | &nbsp;Buildbot
-          div.nav-collapse
+          ul.nav.top-menu
+            li.dropdown.clearfix
+              a.dropdown-toggle(href='#')
+                | Discover
+                span.caret
+              ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='continuous-integration.html') Continuous Integration
+                li
+                  a(href='basics.html') Buildbot Basics
+                li
+                  a(href='framework.html') Buildbot the CI Framework
+                li.divider
+                li
+                  a(href='http://buildbot.net/trac/wiki/SuccessStories') Success stories
+            li.dropdown.clearfix
+              a.dropdown-toggle(href='#')
+                | Use
+                span.caret
+              ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='http://buildbot.net/buildbot/docs/current/tutorial/') Tutorial
+                li
+                  a(href='hhttp://buildbot.net/buildbot/docs/current/index.html') Latest documentation
+                li.divider
+                li
+                  a(href='community.html') Support
+                li.divider
+                li
+                  a(href='http://buildbot.net/buildbot/docs') Documentation for previous releases
+                  a(href='http://trac.buildbot.net') Trac wiki
+          div.nav-collapse(collapse="!isCollapsed")
             ul.nav.top-menu
-              li.dropdown.clearfix
-                a.dropdown-toggle(href='#')
-                  | Discover
-                  span.caret
-                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                  li
-                    a(href='continuous-integration.html') Continuous Integration
-                  li
-                    a(href='basics.html') Buildbot Basics
-                  li
-                    a(href='framework.html') Buildbot the CI Framework
-                  li.divider
-                  li
-                    a(href='success-stories.html') Success stories
-              li.dropdown.clearfix
-                a.dropdown-toggle(href='#')
-                  | Use
-                  span.caret
-                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                  li
-                    a(href='docs/tutorial') Tutorial
-                  li
-                    a(href='http://buildbot.net/buildbot/docs/current') Latest documentation
-                  li.divider
-                  li
-                    a(href='community.html') Support
-                  li.divider
-                  li
-                    a(href='docs/latest') Documentation for previous releases
               li.dropdown.clearfix
                 a.dropdown-toggle(href='#')
                   | Roadmap
@@ -76,7 +78,7 @@ html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
                   li
                     a(href='http://metabuildbot.buildbot.net') Metabuildbot: The buildbot of buildbot
                   li
-                    a(href='http://trac.buildbot.net') Trac: The bug tracker
+                    a(href='http://trac.buildbot.net/query') Trac: The bug tracker
                   li
                     a(href='http://github.com/buildbot/buildbot') Github: the source code
                   li.divider
