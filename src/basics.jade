@@ -1,93 +1,57 @@
 extends layout/layout-pages
 block hero
-  h1 Buildbot
-  p
-    | is an
-    strong  open-source
-    |  CI tool based on python and twisted, designed for great flexibility.
+  h1 Buildbot Basics
 block text
   :markdown
-    Buildbot is a mature framework for building continuous integration
-    systems. It supports parallel execution of jobs across multiple
-    platforms, flexible integration with version-control systems, extensive
-    status reporting, and more. Beyond the capabilities it shares with
-    similar tools, buildbot has a number of unique strengths and
-    capabilities, some of them particularly geared toward release processes.
+    Buildbot is an open-source framework for building continuous integration systems, based on Twisted Python.
+    It supports continuous integration testing, continuous deployment, and release engineering.
+    Its design allows your installation to grow with your requirements, beginning with simple processes and growing to meet your unique needs.
+    This flexibility has led to its use in a number of high-profile open-source projects, including [Chromium, WebKit, Firefox, Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
 
-    Introduction
-    ============
+    Running Buildbot
+    ================
 
-    Buildbot is a continuous integration framework in use for [well over 10
-    years](https://raw.github.com/buildbot/buildbot/master/master/docs/relnotes/0.3.1.txt).
-    While it began as a simple build-and-test tool, it
-    has grown into a sophisticated framework supporting continuous
-    integration testing, continuous deployment, and release engineering. Its
-    design allows an installation to grow with its requirements, beginning
-    with a simple configuration and growing into a multi-master
-    configuration with complex coordination of builds, each containing many
-    sophisticated steps. This flexibility has led to its use in a number of
-    high-profile open-source projects, including [Chromium, WebKit, Firefox,
-    Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
+    The most basic Buildbot installation consists of a master and a slave.
+    The slave is responsible for actually performing the work—building the application, running the tests, or deploing the site.
+    The master coordinates its actions its activities and gathers their results.
 
-    Buildbot is but one of many tools commonly used for build, test, and
-    release. In such an active ecosystem, each tool has strengths that make
-    it the best choice for certain purposes. Buildbot’s niche is complex
-    applications requiring extensive customization.
+    You configure Buildbot by providing a Python configuration script to the master.
+    This script can be very simple, configuring built-in components, but the full expressive power of Python is available.
+    This allows dynamic generation of configuration, customized components, and anything else you can devise.
 
-    This paper briefly summarizes Buildbot’s structure, as background for
-    the following sections. It then compares the framework to other tools.
-    Next, it describes some of the tool’s unique features and capabilities.
-    It finishes with a description of ongoing work in the Buildbot
-    development community.
+    The Buildbot master and slave are both implemented as Python daemons.
+    Small Buildbot installations are generally composed of one master and tens of slaves.
+    Larger installations run tens of masters with hundreds or thousands of slaves.
+
+    See the [Buildbot Tutorial](http://buildbot.net/buildbot/docs/current/tutorial/) for a gentle introduction to running and configuring Buildbot.
 
     Buildbot’s Structure
     ====================
 
-    At its core, Buildbot is a job scheduling system: it queues jobs (called
-    *builds* for historical reasons), executes the jobs when the required
-    resources are available, and reports the results. This section briefly
-    summarizes Buildbot’s structure. Refer to the Buildbot
-    [documentation](http://buildbot.net/buildbot/docs/current/manual/introduction.html)
-    for more details.
+    Diving a little deeper, let's take a whirlwind tour of the pieces that make up a Buildbot application.
+    At its core, Buildbot is a job scheduling system: it queues jobs, executes the jobs when the required resources are available, and reports the results.
+    The jobs are called *builds*, even if they do not involve compiling software.
 
-    Buildbot’s *change sources* watch for commits (generically called
-    *changes*). The framework includes change sources for most common
-    version-control systems, with flexible configuration to support a
-    variety of deployments. *Schedulers* react to new changes from change
-    sources, to external events, or to times (e.g., for a nightly build),
-    and add new *build requests* to the queue.
+    Buildbot’s *change sources* watch for commits (generically called *changes*) to version control.
+    *Schedulers* react to new changes, to external events, or to times (e.g., for a nightly build), and add new *build requests* to the queue.
 
-    Each build request comes with a set of source stamps identifying the
-    code from each codebase that should be used for the build. A *source
-    stamp* represents a particular revision and branch, in a source-code
-    repository. Build requests also specify a *builder* that should perform
-    the task, and a set of and *properties*, arbitrary key-value pairs
-    giving further detail about the requested build. Each *builder* defines
-    the steps to take in executing a particular type of build. Once the
-    request is selected for execution, the steps are executed sequentially.
-    Each build is executed on exactly one slave.
+    Each build request comes with a set of source stamps identifying the code from each codebase that should be used for the build.
+    A *source stamp* represents a particular revision and branch in a source-code repository.
 
-    Buildbot has a distributed master-slave architecture, where the
-    *masters* instruct the *slaves* to perform each step of a build in
-    sequence. The slave portion of Buildbot is platform-independent. Many
-    slaves can be connected to each master, running builds in parallel. A
-    slave may execute multiple builds simultaneously, as long as they are
-    for different builders.
+    A unique feature of Buildbot is support for multiple *codebases* in the same build.
+    For example, imagine a phone app that is built from a "common" repository and a separate repository for each mobile OS: "Android", "iOS", etc.
+    Buildbot can intelligently schedule builds from specific revisions of the "common" and "Android" repositories whenever either one changes, and similarly for "iOS".
 
-    Once a build is complete, the framework reports the results—log files
-    and step status—to users and developers via *status listeners*. Buildbot
-    has built-in support for reporting via web, email, irc, Tinderbox, and
-    gerrit.
+    Build requests also specify a *builder* that should perform the task, and a set of and *properties*, arbitrary key-value pairs giving further detail about the requested build.
+    Each builder defines the steps to take in executing a particular type of build.
+    Once the build request is selected for execution, the steps are executed sequentially.
 
-    The Buildbot master and slave are both implemented as Python daemons.
-    Small Buildbot installations are generally composed of one master and
-    tens of slaves. Larger installations run tens of masters with hundreds
-    or thousands of slaves.
+    Buildbot has a distributed master-slave architecture, where the *masters* instruct the *slaves* to perform each step of a build in sequence.
+    The slave portion of Buildbot is platform-independent.
+    Many slaves can be connected to each master, running builds in parallel.
+    A slave may execute multiple builds simultaneously, as long as they are for different builders.
 
-    Related Work
-    ============
+    Once a build is complete, the framework reports the results—log files and step status—to users and developers via *status listeners*.
+    Buildbot has built-in support for reporting via web, email, irc, Tinderbox, and gerrit.
 
-    The ecosystem of continuous integration testing tools is a busy one. The
-    [Thoughtworks feature matrix](http://confluence.public.thoughtworks.org/display/CC/CI+Feature+Matrix) lists 28 packages, and
-    does not consider cloud-based services such as Travis-CI or TDDium.
-
+    The "[Concepts](http://buildbot.net/buildbot/docs/current/manual/concepts.html)" section of the Buildbot manual gives more detail on all of these components.
