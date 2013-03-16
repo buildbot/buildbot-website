@@ -107,6 +107,11 @@ block text
     Buildbot supports dynamic reconfiguration without interrupting running
     builds. This allows adjustments to the build process without downtime.
 
+    Having buildbot configuration as a Python script allow users to put it in
+    configuration management (e.g. git), and thus easily revert track changes,
+    in a team environment. Release engineers can develop their config changes
+    in their own environment, and then push the results in production.
+
     Multiple Codebases
     ------------------
 
