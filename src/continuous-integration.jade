@@ -2,11 +2,28 @@ extends layout/layout-pages
 block hero
   h1 Continuous Integration
   p
-   | is a software technique whose goal is to
-   strong  accelerate development
-   |  by continuously integrating contributions from developers
-   | into the mainline
+    | Buildbot supports
+    strong  continuous integration
+    |  - building and testing on each commit;
+    strong  continuous deployment
+    |  - deploying automatically on each commit;
+    strong  release management
+    |  - building and packaging applications for users; and
+    | any process you implement.
 block text
   :markdown
-        Please see [the wikipedia](http://en.wikipedia.org/wiki/Continuous_integration "wikipedia article for continuous integration") article
-        for more information about continous integration
+    Continous integration is an umbrella term for automation of software development processes.
+    When these processes are automated, they are repeatable and reliable can can be run as frequently as available computing resources allow.
+
+    Automating the build and test process gives developers immediate feedback on their work.
+    Tests can run on multiple platforms, ensuring that code changes made on one platform do not cause failures on other platforms.
+
+    Once a project is ready for use by users, it is either deployed (for hosted applications, such as web sites) or released (for packaged software such as desktop applications).
+
+    Automating deployment makes the process repeatable and reliable.
+    Changes can be deployed to a staging environment first, then deployed to production using exactly the same procedure, eliminating failures due to human error.
+    Deployments can occur many times every day, with only small changes between each deployment.
+
+    Releasing packaged software, too, benefits from automation.
+    The process can involve compiling and packaging on multiple platforms, signing builds, localizing strings, quality-assurance checks, and so on.
+    When automated with a tool like Buildbot, all of this occurs repeatably and efficiently.
