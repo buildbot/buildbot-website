@@ -1,33 +1,57 @@
 extends layout/layout-pages
 block hero
-  h1 Buildbot
-  p
-    | is an
-    strong  open-source
-    |  CI tool based on python and twisted, designed for great flexibility.
-  p
-    | The configuration file being a python script allows you to use the full power of python
-    | to describe your process.
+  h1 Buildbot Basics
 block text
   :markdown
-         Buildbot is a continuous integration system designed to automate the
-         build/test cycle. By automatically rebuilding and testing the tree each time
-         something has changed, build problems are pinpointed quickly, before other
-         developers are inconvenienced by the failure.  Features
+    Buildbot is an open-source framework for building continuous integration systems, based on Twisted Python.
+    It supports continuous integration testing, continuous deployment, and release engineering.
+    Its design allows your installation to grow with your requirements, beginning with simple processes and growing to meet your unique needs.
+    This flexibility has led to its use in a number of high-profile open-source projects, including [Chromium, WebKit, Firefox, Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
 
-         * Buildbot is easy to set up, but very extensible and customizable.  It
-           supports arbitrary build processes, and is not limited to common build
-           processes for particular languages (e.g., autotools or ant)
+    Running Buildbot
+    ================
 
-         * Buildbot supports building and testing on a variety of platforms.
-           Developers, who do not have the facilities to test their changes everywhere
-           before committing, will know shortly afterwards whether they have broken the
-           build or not.
+    The most basic Buildbot installation consists of a master and a slave.
+    The slave is responsible for actually performing the work—building the application, running the tests, or deploing the site.
+    The master coordinates its actions its activities and gathers their results.
 
-         * Buildbot has minimal requirements for slaves: using virtualenv, only a
-           Python installation is required.
+    You configure Buildbot by providing a Python configuration script to the master.
+    This script can be very simple, configuring built-in components, but the full expressive power of Python is available.
+    This allows dynamic generation of configuration, customized components, and anything else you can devise.
 
-         * Slaves can be run behind a NAT firewall and communicate with the master
+    The Buildbot master and slave are both implemented as Python daemons.
+    Small Buildbot installations are generally composed of one master and tens of slaves.
+    Larger installations run tens of masters with hundreds or thousands of slaves.
 
-         * Buildbot has a variety of status-reporting tools to get information about
-           builds in front of developers in a timely manner.
+    See the [Buildbot Tutorial](http://buildbot.net/buildbot/docs/current/tutorial/) for a gentle introduction to running and configuring Buildbot.
+
+    Buildbot’s Structure
+    ====================
+
+    Diving a little deeper, let's take a whirlwind tour of the pieces that make up a Buildbot application.
+    At its core, Buildbot is a job scheduling system: it queues jobs, executes the jobs when the required resources are available, and reports the results.
+    The jobs are called *builds*, even if they do not involve compiling software.
+
+    Buildbot’s *change sources* watch for commits (generically called *changes*) to version control.
+    *Schedulers* react to new changes, to external events, or to times (e.g., for a nightly build), and add new *build requests* to the queue.
+
+    Each build request comes with a set of source stamps identifying the code from each codebase that should be used for the build.
+    A *source stamp* represents a particular revision and branch in a source-code repository.
+
+    A unique feature of Buildbot is support for multiple *codebases* in the same build.
+    For example, imagine a phone app that is built from a "common" repository and a separate repository for each mobile OS: "Android", "iOS", etc.
+    Buildbot can intelligently schedule builds from specific revisions of the "common" and "Android" repositories whenever either one changes, and similarly for "iOS".
+
+    Build requests also specify a *builder* that should perform the task, and a set of and *properties*, arbitrary key-value pairs giving further detail about the requested build.
+    Each builder defines the steps to take in executing a particular type of build.
+    Once the build request is selected for execution, the steps are executed sequentially.
+
+    Buildbot has a distributed master-slave architecture, where the *masters* instruct the *slaves* to perform each step of a build in sequence.
+    The slave portion of Buildbot is platform-independent.
+    Many slaves can be connected to each master, running builds in parallel.
+    A slave may execute multiple builds simultaneously, as long as they are for different builders.
+
+    Once a build is complete, the framework reports the results—log files and step status—to users and developers via *status listeners*.
+    Buildbot has built-in support for reporting via web, email, irc, Tinderbox, and gerrit.
+
+    The "[Concepts](http://buildbot.net/buildbot/docs/current/manual/concepts.html)" section of the Buildbot manual gives more detail on all of these components.
