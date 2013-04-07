@@ -1,0 +1,34 @@
+extends layout/layout
+include include/buttons
+include include/triptych
+include include/subpage
+
+block content
+    .container-fluid
+        .span4
+            img(src="img/nut.png", style="width: 90%")
+        .span8
+            :markdown
+                About Us
+                ========
+                Buildbot is an open-source application originally written by Brian Warner, and now maintained by Dustin J. Mitchell.
+                It is used to build, test, and release a [wide variety](http://buildbot.net/trac/wiki/SuccessStories) of software.
+
+                Community
+                ---------
+
+                As an open source project, Buildbot welcomes all potential users and contributors.
+                Contributions come from individual users and from well-known companies.
+                We have participated in the Google Summer of Code since 2011, and host sprints (multi-day programming sessions) at PyCon every year.
+                The \#buildbot IRC channel is an active and positive communication channel, as is the mailing list.
+                This environment has encouraged a broad developer community, with 71 contributors committing code in the last year alone, and many more offering advice and support to other users.
+
+                Governance
+                ----------
+
+                Buildbot has been offered membership in the [Software Freedom Conservancy](http://sfconservancy.org/).
+
+                License
+                -------
+
+                The software is licensed under version 2 of the GNU Public License.

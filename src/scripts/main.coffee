@@ -8,7 +8,6 @@ require
         'libs/ng-bootstrap'      : deps: ['libs/angular']
         'libs/angular'           : deps: ['libs/jquery.min']
         'bootstrap'              : deps: ['app']
-        'routes'                 : deps: ['app']
         'run'                    : deps: ['app']
     [
         'require'

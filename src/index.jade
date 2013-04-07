@@ -18,123 +18,104 @@ block content
           li: +github-fork
           li: +twitter
           li: +plus
-  .container
+  .container.subpage
     +triptych
       +triptych-panel
-        h3 Buildbot
+        h3 Buildbot Basics
         p.
-          Buildbot is an <strong>open-source</strong> framework for building
-          continuous integration systems, based on Twisted Python.
-        p.
-          It supports parallel execution of jobs across multiple platforms,
-          flexible integration with version-control systems, extensive status
-          reporting, and more.
-        a.btn.btn-primary(href="basics.html") Learn more
+          Buildbot is an <strong>open-source</strong> framework for automating
+          software build, test, and release processes.
+        a.btn.btn-primary(href="#basics") Learn more
 
       +triptych-panel
-        h3 Continuous Integration
-        p.
-          Buildbot supports <strong>continuous integration</strong> - building
-          and testing on each commit; <strong>continuous deployment</strong> -
-          deploying automatically on each commit; <strong>release
-          management</strong> - building and packaging applications for users;
-          and any process you implement.
-        a.btn.btn-primary(href="continuous-integration.html") Learn more
+        h3 Automated Build, Test, and Release
+        p Buildbot can automate all aspects of the software development cycle:
+          ul
+            li Continuous Integration
+            li Continuous Deployment
+            li Release Management
+          | ..and any other process you can imagine.
+        a.btn.btn-primary(href="#automation") Learn more
 
       +triptych-panel
-        h3 Framework
+        h3 A Framework with Batteries Included
         p.
           Buildbot is a framework in which <strong>you</strong>
           implement a system that matches <strong>your workflow</strong>
           and grows with your organization.
-        a.btn.btn-primary(href="framework.html") Learn more
+        a.btn.btn-primary(href="#framework") Learn more
 
-  #basics
-  +subpage
+  +subpage("dark", "basics")
     h1 Buildbot Basics
-    :markdown
-      Buildbot is an open-source framework for building continuous integration systems, based on Twisted Python.
-      It supports continuous integration testing, continuous deployment, and release engineering.
-      Its design allows your installation to grow with your requirements, beginning with simple processes and growing to meet your unique needs.
-      This flexibility has led to its use in a number of high-profile open-source projects, including [Chromium, WebKit, Firefox, Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
 
-    h3 Running Buildbot
+    p.well.
+      Buildbot supports distributed, parallel execution of jobs across multiple platforms, flexible integration with version-control systems, extensive status reporting, and more.
 
-    :markdown
-      The most basic Buildbot installation consists of a master and a slave.
-      The slave is responsible for actually performing the work—building the application, running the tests, or deploing the site.
-      The master coordinates its actions its activities and gathers their results.
+    img(src="img/overview.png").pull-right
+    h2 Buildbot in Action
+    p.
+      At its core, Buildbot is a job scheduling system: it queues jobs, executes the jobs when the required resources are available, and reports the results.
 
+    p.
+      Your Buildbot installation has one or more masters and a collection of slaves.
+      The masters monitor source-code repositories for changes, coordinate the activities of the slaves, and report results to users and developers.
+      Slaves run on a variety of operating systems.
+
+    p.
       You configure Buildbot by providing a Python configuration script to the master.
       This script can be very simple, configuring built-in components, but the full expressive power of Python is available.
       This allows dynamic generation of configuration, customized components, and anything else you can devise.
 
-      The Buildbot master and slave are both implemented as Python daemons.
-      Small Buildbot installations are generally composed of one master and tens of slaves.
-      Larger installations run tens of masters with hundreds or thousands of slaves.
+    p.
+      The framework itself is implemented in Twisted Python, and compatible with all major operating systems.
 
-      See the [Buildbot Tutorial](http://buildbot.net/buildbot/docs/current/tutorial/) for a gentle introduction to running and configuring Buildbot.
+    h2 Learn More
+    p
+      | See the
+      a(href="http://buildbot.net/buildbot/docs/current/tutorial/")  Buildbot Tutorial
+      |  for a gentle introduction to running and configuring Buildbot.
 
-    h3 Buildbot’s Structure
+  +subpage("light", "automation")
+    .span3
+    .span9
+      h1 Automated Build, Test, and Release
+      p.well.
+        Buildbot supports not just continuous-integration testing, but automation of complex build systems, application deployment, and management of sophisticated software-release processes.
 
-    :markdown
-      Diving a little deeper, let's take a whirlwind tour of the pieces that make up a Buildbot application.
-      At its core, Buildbot is a job scheduling system: it queues jobs, executes the jobs when the required resources are available, and reports the results.
-      The jobs are called *builds*, even if they do not involve compiling software.
+      h2 Benefits of Automation
+      :markdown
+        When software development processes are automated, they are repeatable and reliable can can be run as frequently as available computing resources allow.
 
-      Buildbot’s *change sources* watch for commits (generically called *changes*) to version control.
-      *Schedulers* react to new changes, to external events, or to times (e.g., for a nightly build), and add new *build requests* to the queue.
+        Automating the build and test process gives developers immediate feedback on their work.
+        Tests can run on multiple platforms, ensuring that code changes made on one platform do not cause failures on other platforms.
 
-      Each build request comes with a set of source stamps identifying the code from each codebase that should be used for the build.
-      A *source stamp* represents a particular revision and branch in a source-code repository.
+        Once a project is ready for use by users, it is either deployed (for hosted applications, such as web sites) or released (for packaged software such as desktop applications).
 
-      A unique feature of Buildbot is support for multiple *codebases* in the same build.
-      For example, imagine a phone app that is built from a "common" repository and a separate repository for each mobile OS: "Android", "iOS", etc.
-      Buildbot can intelligently schedule builds from specific revisions of the "common" and "Android" repositories whenever either one changes, and similarly for "iOS".
+        Automating deployment makes the process predictable and lowers the risk involved with each push.
+        Changes can be deployed to a staging environment first, then deployed to production using exactly the same procedure, eliminating failures due to human error.
+        Deployments can occur many times every day, with only small changes between each deployment.
 
-      Build requests also specify a *builder* that should perform the task, and a set of and *properties*, arbitrary key-value pairs giving further detail about the requested build.
-      Each builder defines the steps to take in executing a particular type of build.
-      Once the build request is selected for execution, the steps are executed sequentially.
+        Releasing packaged software, too, benefits from automation.
+        The process can involve compiling and packaging on multiple platforms, signing builds, localizing strings, quality-assurance checks, and so on.
+        When automated with a tool like Buildbot, all of this occurs repeatably and efficiently.
 
-      Buildbot has a distributed master-slave architecture, where the *masters* instruct the *slaves* to perform each step of a build in sequence.
-      The slave portion of Buildbot is platform-independent.
-      Many slaves can be connected to each master, running builds in parallel.
-      A slave may execute multiple builds simultaneously, as long as they are for different builders.
+  +subpage("dark", "framework")
+    .span9
+      h1 A Framework with Batteries Included
 
-      Once a build is complete, the framework reports the results—log files and step status—to users and developers via *status listeners*.
-      Buildbot has built-in support for reporting via web, email, irc, Tinderbox, and gerrit.
+      p.well.
+        Just as web frameworks such as Django or Rails provide the structure and components to build websites,
+        Buildbot provides the structure and components to automate your build, test, and release processes.
 
-      The "[Concepts](http://buildbot.net/buildbot/docs/current/manual/concepts.html)" section of the Buildbot manual gives more detail on all of these components.
+      :markdown
+        Many CI tools, such as [CruiseControl](http://cruisecontrol.sourceforge.net/gettingstarted.html) or [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins), are structured as ready-to-use applications.
+        Users fill in specific details, such as version control information and build process, but the fundamental design is fixed and options are limited to those envisioned by the authors.
+        This arrangement suits the common cases quite well: there are cookie-cutter tools to automatically build and test Java applications, Ruby gems, and so on.
+        Such tools embody assumptions about the structure of the project and its processes.
+        They are not well-suited to more complex cases, such as mixed-language applications or complex release tasks, where those assumptions are violated.
 
-  #continuous-integration
-  +subpage
-    h1 Continuous Integration
-    :markdown
-      Continous integration is an umbrella term for automation of software development processes.
-      When these processes are automated, they are repeatable and reliable can can be run as frequently as available computing resources allow.
+        Buildbot's design allows your installation to grow with your requirements, beginning with simple processes and growing to meet your unique needs.
+        This flexibility has led to its use in a number of high-profile open-source projects, including [Chromium, WebKit, Firefox, Python, and Twisted](http://buildbot.net/trac/wiki/SuccessStories).
 
-      Automating the build and test process gives developers immediate feedback on their work.
-      Tests can run on multiple platforms, ensuring that code changes made on one platform do not cause failures on other platforms.
-
-      Once a project is ready for use by users, it is either deployed (for hosted applications, such as web sites) or released (for packaged software such as desktop applications).
-
-      Automating deployment makes the process repeatable and reliable.
-      Changes can be deployed to a staging environment first, then deployed to production using exactly the same procedure, eliminating failures due to human error.
-      Deployments can occur many times every day, with only small changes between each deployment.
-
-      Releasing packaged software, too, benefits from automation.
-      The process can involve compiling and packaging on multiple platforms, signing builds, localizing strings, quality-assurance checks, and so on.
-      When automated with a tool like Buildbot, all of this occurs repeatably and efficiently.
-
-  #framework
-  +subpage
-    h1 Framework
-    :markdown
-      Web frameworks such as Django or Rails provide the structure and components to build websites.
-      Buildbot provides the structure and components for building continous integration systems.
-
-      Many CI tools, such as [CruiseControl](http://cruisecontrol.sourceforge.net/gettingstarted.html) or [Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins), are structured as ready-to-use applications.
-      Users fill in specific details, such as version control information and build process, but the fundamental design is fixed and options are limited to those envisioned by the authors.
-      This arrangement suits the common cases quite well: there are cookie-cutter tools to automatically build and test Java applications, Ruby gems, and so on.
-      Such tools embody assumptions about the structure of the project and its processes.
-    They are not well-suited to more complex cases, such as mixed-language applications or complex release tasks, where those assumptions are violated.
+    .span3
+      img(src="img/nut.png")
