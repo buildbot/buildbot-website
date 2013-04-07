@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                 files: ['./src/scripts/**/*.coffee', './test/scripts/**/*.coffee'],
                 // Use one tab for indentation.
                 indentation: {
-                    value: 1,
+                    value: 4,
                     level: 'error'
                 },
                 // No maximum line length.
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 },
                 // Using tabs should not result in an error.
                 no_tabs: {
-                    level: 'ignore'
+                    level: 'error'
                 }
             }
         },
