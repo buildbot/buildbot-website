@@ -186,10 +186,21 @@ header {
 }
 
 .subpage.dark {
-  background: rgb(190,183,199);
+  background: #EEE;
+  box-shadow: 0 0 13px #CCC;
+  padding: 13px;
+  margin: 13px;
 }
-
+@media (max-width: 767px) {
+  .subpage.dark {
+    padding: 0px;
+    margin: 0px;
+  }
+}
 .subpage.light {
-  background: rgb(223,219,227);
+  background: #FFF;
 }
-
+.shadow {
+    box-shadow: 0 0 13px #555;
+    margin: 13px;
+}
