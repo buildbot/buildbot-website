@@ -171,7 +171,8 @@ module.exports = function (grunt) {
                 files: {
                     './temp/scripts/libs/': './src/scripts/libs/',
                     './temp/img/': './src/img/',
-                    './temp/font/': './src/font/'
+                    './temp/font/': './src/font/',
+                    './temp/robots.txt': './src/robots.txt'
                 }
             },
             /*
