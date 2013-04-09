@@ -196,7 +196,7 @@ module.exports = function (grunt) {
                     './built/scripts/': './temp/scripts/scripts.min.js',
                     './built/scripts/libs': ['./temp/scripts/libs/html5shiv-printshiv.js', './temp/scripts/libs/json2.js'],
                     './built/styles/': './temp/styles/styles.min.css',
-                    './built/': './temp/min/robots.txt',
+                    './built/robots.txt': './temp/robots.txt',
                     './built/': './temp/min/*.html'
                 }
             },
