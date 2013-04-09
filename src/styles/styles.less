@@ -1,4 +1,5 @@
 @import "bootstrap.less";
+@import "responsive.less";
 @import "ng-grid.less";
 .clearfix {
   *zoom: 1;
@@ -46,46 +47,78 @@ header {
 }
 /* Github-Ribbon
 -------------------------------------------------- */
-.github-ribbon {
-  background-color: #121621;
-  display: block;
+.ribbon-holder {
   position: absolute;
-  top: 3.2em;
-  right: -3.7em;
+  overflow: hidden;
+  height: 10em;
+  top: 0;
+  z-index: 10;
+}
+
+.right.ribbon-holder {
+  right: 0;
+}
+
+.left.ribbon-holder {
+  left: 0;
+}
+
+.ribbon, .ribbon:hover {
+  text-decoration: none !important;
+  transition-property: color box-shadow;
+  transition-duration: 300ms;
+}
+.ribbon:hover {
+  color:#f77 !important;
+  box-shadow: 0 0 23px #888;
+};
+.ribbon {
+  font-family: Collegiate, sans-serif;
+  letter-spacing: -.1px;
+  opacity: 0.95;
+
+  padding: 0.25em 0;
+  position: relative;
+  display: block;
+  top: 3em;
+
+  /* Defaults friendly for white pages. */
+  -webkit-box-shadow: 0 0 13px #888;
+  -moz-box-shadow: 0 0 13px #888;
+  -ms-box-shadow: 0 0 13px #888;
+  -o-box-shadow: 0 0 13px #888;
+  box-shadow: 0 0 13px #888;
+  color: #FFF;
+}
+
+.ribbon .text {
+  padding: 0.1em 3em;
+}
+
+.right .ribbon {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
-  -webkit-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
-  -moz-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
-  -ms-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
-  -o-box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
-  box-shadow: 0 0 0 1px #1d212e inset,0 0 2px 1px #fff inset,0 0 1em #888;
-  color: rgba(255, 255, 255, 0.9);
-  display: block;
-  padding: .6em 3.5em;
-  font: bold 0.82em sans-serif;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 1px -1px 8px rgba(0, 0, 0, 0.6);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+  right: -3.5em;
 }
-.github-ribbon {
-  z-index: 2;
-  /*@media (max-width: 979px) {
-		display: none;
-	}*/
 
+.red.ribbon {
+  background-color: #9a0000;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9a0000), color-stop(100%,#a90000));
+  background: -webkit-linear-gradient(top, #9a0000 0%,#a90000 100%);
+  background: -moz-linear-gradient(top, #9a0000 0%, #a90000 100%); 
+  background: -ms-linear-gradient(top, #9a0000 0%,#a90000 100%);
+  background: -o-linear-gradient(top, #9a0000 0%,#a90000 100%);
+  background: linear-gradient(top, #9a0000 0%,#a90000 100%);
 }
-.github-ribbon:hover {
-	color:rgb(93, 75, 116);
-	text-decoration: none;
+
+.red.ribbon .text {
+  border: 1px solid #bf6060;
 }
+
+
 /* Jumbotrons
 -------------------------------------------------- */
 /* Base class
@@ -97,7 +130,7 @@ header {
 
   overflow: hidden;
   position: relative;
-  padding: 60px 0 40px;
+  padding: 1em 0 2em;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
@@ -145,4 +178,29 @@ header {
 }
 .ng-cloak {
 	display: none;
+}
+
+.subpage {
+    min-height: 820px;
+    padding-top: 3em;
+}
+
+.subpage.dark {
+  background: #EEE;
+  box-shadow: 0 0 13px #CCC;
+  padding: 13px;
+  margin: 13px;
+}
+@media (max-width: 767px) {
+  .subpage.dark {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+.subpage.light {
+  background: #FFF;
+}
+.shadow {
+    box-shadow: 0 0 13px #555;
+    margin: 13px;
 }

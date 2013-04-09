@@ -22,7 +22,7 @@ module.exports = function (grunt) {
                 files: ['./src/scripts/**/*.coffee', './test/scripts/**/*.coffee'],
                 // Use one tab for indentation.
                 indentation: {
-                    value: 1,
+                    value: 4,
                     level: 'error'
                 },
                 // No maximum line length.
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 },
                 // Using tabs should not result in an error.
                 no_tabs: {
-                    level: 'ignore'
+                    level: 'error'
                 }
             }
         },
@@ -196,7 +196,7 @@ module.exports = function (grunt) {
                     './built/scripts/': './temp/scripts/scripts.min.js',
                     './built/scripts/libs': ['./temp/scripts/libs/html5shiv-printshiv.js', './temp/scripts/libs/json2.js'],
                     './built/styles/': './temp/styles/styles.min.css',
-                    './built/index.html': './temp/index.min.html'
+                    './built/': './temp/min/*.html'
                 }
             },
             // Task is run when a watched script is modified.
@@ -279,7 +279,7 @@ module.exports = function (grunt) {
         minifyHtml: {
             prod: {
                 files: {
-                    './temp/index.min.html': './temp/index.html'
+                    './temp/min/': './temp/*.html'
                 }
             }
         },

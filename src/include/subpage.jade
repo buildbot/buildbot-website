@@ -1,0 +1,12 @@
+mixin subpage(color, anchor)
+  case color
+    when "dark"
+      .subpage.dark
+        .container(id=anchor)
+          .row-fluid
+            block
+    when "light"
+      .subpage.light
+        .container(id=anchor)
+          .row-fluid
+            block

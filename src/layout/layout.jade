@@ -1,93 +1,98 @@
 !!! 5
 html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
   head
-      meta(charset='utf-8')
-      meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-  title Buildbot
-  meta(name='description', content='Buildbot, the CI framework')
-  meta(name='viewport', content='width=device-width')
-  //if lte IE 8
-    script(src='scripts/libs/json2.js')
-    script(src='scripts/libs/html5shiv-printshiv.js')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Buildbot
+    meta(name='description', content='Buildbot - The Continuous Integration Framework')
+    meta(name='viewport', content='width=device-width')
+    //if lte IE 8
+      script(src='scripts/libs/json2.js')
+      script(src='scripts/libs/html5shiv-printshiv.js')
 
-  case self.environment || 'prod'
-    when 'prod'
-       link(rel='stylesheet', href='styles/styles.min.css?_#{(new Date()).getTime()}')
-    default
-       link(rel='stylesheet', href='styles/styles.css')
-       //- automatic reload support. in "grunt dev" mode, page reload automatically
-       script
-         __reloadServerUrl="ws://#{self.reloadUrl}";
-       script(type='text/javascript', src='//#{self.reloadUrl}/__reload/client.js')
+    case self.environment || 'prod'
+      when 'prod'
+         link(rel='stylesheet', href='styles/styles.min.css?_#{(new Date()).getTime()}')
+      default
+         link(rel='stylesheet', href='styles/styles.css')
+         //- automatic reload support. in "grunt dev" mode, page reload automatically
+         script
+           __reloadServerUrl="ws://#{self.reloadUrl}";
+         script(type='text/javascript', src='//#{self.reloadUrl}/__reload/client.js')
 
   body.ng-cloak(ng-cloak='ng-cloak')
     // navbar
     div.navbar.navbar-fixed.navbar-inverse
       div.navbar-inner
         div.container
-          a.btn.btn-navbar
-            span.icon-bar
-          a.brand(href="/")
+          a.btn.btn-navbar(ng-click="isCollapsed = !isCollapsed")
+            span.icon-angle-down
+          a.brand(href="index.html")
             img#logo(src="img/favicon.ico")
             | &nbsp;Buildbot
-          div.nav-collapse
+          ul.nav.top-menu
+            li.dropdown.clearfix
+              a.dropdown-toggle(href='#')
+                | Discover Buildbot
+                span.caret
+              ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='index.html#basics') Buildbot Basics
+                li
+                  a(href='index.html#automation') Automated Build, Test, and Release
+                li
+                  a(href='index.html#') A Framework with Batteries Included
+                li.divider
+                li
+                  a(href='about.html') About Us
+                li
+                  a(href='contact.html') Contact
+                li.divider
+                li
+                  a(href='http://trac.buildbot.net/wiki/SuccessStories') Success stories
+                li
+                  a(href='http://trac.buildbot.net/wiki/Press') Press
+                li
+                  a(href='http://buildbot.buildbot.net') Metabuildbot: Buildbot's Buildbot
+            li.dropdown.clearfix
+              a.dropdown-toggle(href='#')
+                | Get Started
+                span.caret
+              ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
+                li
+                  a(href='http://buildbot.net/buildbot/docs/current/tutorial/') Follow the Tutorial
+                li
+                  a(href='http://buildbot.net/buildbot/docs/current/index.html') Read the Docs
+                li.divider
+                li
+                  a(href='http://trac.buildbot.net/wiki/Support') Get Support
+          div.nav-collapse(collapse="!isCollapsed")
             ul.nav.top-menu
               li.dropdown.clearfix
                 a.dropdown-toggle(href='#')
-                  | Discover
+                  | Get Involved
                   span.caret
                 ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
                   li
-                    a(href='continuous-integration.html') Continuous Integration
+                    a(href='https://lists.sourceforge.net/lists/listinfo/buildbot-devel') Join the Mailing List
                   li
-                    a(href='basics.html') Buildbot Basics
+                    a(href='http://irc.freenode.net/buildbot') ..or #buildbot on IRC
                   li
-                    a(href='framework.html') Buildbot the CI Framework
+                    a(href='https://plus.google.com/communities/109210901993926528208') ..or +Buildbot
+                  li
+                    a(href='http://github.com/buildbot/buildbot') Get the Source
+                  li
+                    a(href='http://trac.buildbot.net/wiki/Development') Get Started Hacking
+                  li
+                    a(href='http://trac.buildbot.net') File or Fix a Bug
                   li.divider
                   li
-                    a(href='success-stories.html') Success stories
-              li.dropdown.clearfix
-                a.dropdown-toggle(href='#')
-                  | Use
-                  span.caret
-                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                  li
-                    a(href='docs/tutorial') Tutorial
-                  li
-                    a(href='http://buildbot.net/buildbot/docs/current') Latest documentation
-                  li.divider
-                  li
-                    a(href='community.html') Support
-                  li.divider
-                  li
-                    a(href='docs/latest') Documentation for previous releases
-              li.dropdown.clearfix
-                a.dropdown-toggle(href='#')
-                  | Roadmap
-                  span.caret
-                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                  li
-                    a(href='nine.html') Nine: The future
-              li.dropdown.clearfix
-                a.dropdown-toggle(href='#')
-                  | Contribute
-                  span.caret
-                ul.dropdown-menu(role='menu', aria-labelledby='dropdownMenu')
-                  li
-                    a(href='http://metabuildbot.buildbot.net') Metabuildbot: The buildbot of buildbot
-                  li
-                    a(href='http://trac.buildbot.net') Trac: The bug tracker
-                  li
-                    a(href='http://github.com/buildbot/buildbot') Github: the source code
-                  li.divider
-                  li
-                    a(href='community.html') Community
+                    a(href='https://github.com/buildbot/buildbot/blob/nine/README.md') Nine: Buildbot's Future
     block content
-    block footer
 
-  case self.environment || 'prod'
-    when 'prod'
-       script(src='scripts/scripts.min.js?_#{(new Date()).getTime()}')
-    default
-       script(data-main='scripts/main.js',src="scripts/libs/require.js")
+    case self.environment || 'prod'
+      when 'prod'
+         script(src='scripts/scripts.min.js?_#{(new Date()).getTime()}')
+      default
+         script(data-main='scripts/main.js',src="scripts/libs/require.js")
 
