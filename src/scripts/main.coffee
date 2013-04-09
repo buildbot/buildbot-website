@@ -7,7 +7,8 @@ require
         'libs/ng-grid'           : deps: ['libs/angular']
         'libs/ng-bootstrap'      : deps: ['libs/angular']
         'libs/angular'           : deps: ['libs/jquery.min']
-        'bootstrap'              : deps: ['app']
+        'smoothscroll'           : deps: ['app']
+        'bootstrap'              : deps: ['app','smoothscroll']
         'run'                    : deps: ['app']
     [
         'require'
