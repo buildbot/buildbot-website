@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: /buildbot/tmp
-Disallow: /buildbot/pkgs
 Sitemap: http://buildbot.net/sitemap.xml
