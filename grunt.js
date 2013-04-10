@@ -173,6 +173,7 @@ module.exports = function (grunt) {
                     './temp/img/': './src/img/',
                     './temp/font/': './src/font/',
                     './temp/google7cb1f653b4fd6f89.html': './src/google7cb1f653b4fd6f89.html',
+                    './temp/sitemap.xml': './src/sitemap.xml',
                     './temp/robots.txt': './src/robots.txt'
                 }
             },
@@ -198,6 +199,7 @@ module.exports = function (grunt) {
                     './built/scripts/libs': ['./temp/scripts/libs/html5shiv-printshiv.js', './temp/scripts/libs/json2.js'],
                     './built/styles/': './temp/styles/styles.min.css',
                     './built/google7cb1f653b4fd6f89.html': './temp/google7cb1f653b4fd6f89.html',
+                    './built/sitemap.xml': './temp/sitemap.xml',
                     './built/robots.txt': './temp/robots.txt',
                     './built/': './temp/min/*.html'
                 }
