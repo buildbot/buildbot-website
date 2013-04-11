@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="308.77979" height="325.79022" id="svg3816" version="1.1" inkscape:version="0.47 r22583" sodipodi:docname="New document 4">
+  <defs id="defs3818">
+    <inkscape:perspective sodipodi:type="inkscape:persp3d" inkscape:vp_x="0 : 526.18109 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_z="744.09448 : 526.18109 : 1" inkscape:persp3d-origin="372.04724 : 350.78739 : 1" id="perspective3824"/>
+    <inkscape:perspective id="perspective3765" inkscape:persp3d-origin="0.5 : 0.33333333 : 1" inkscape:vp_z="1 : 0.5 : 1" inkscape:vp_y="0 : 1000 : 0" inkscape:vp_x="0 : 0.5 : 1" sodipodi:type="inkscape:persp3d"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3753" gradientUnits="userSpaceOnUse" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257"/>
+    <linearGradient inkscape:collect="always" id="linearGradient3731">
+      <stop style="stop-color:#6f918a;stop-opacity:1;" offset="0" id="stop3733"/>
+      <stop style="stop-color:#6f918a;stop-opacity:0;" offset="1" id="stop3735"/>
+    </linearGradient>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3751" gradientUnits="userSpaceOnUse" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3745" gradientUnits="userSpaceOnUse" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3743" gradientUnits="userSpaceOnUse" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3737" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257" gradientUnits="userSpaceOnUse"/>
+    <linearGradient inkscape:collect="always" xlink:href="#linearGradient3731" id="linearGradient3755" gradientUnits="userSpaceOnUse" x1="1475.4565" y1="1033.0128" x2="876.95422" y2="1319.9257"/>
+    <linearGradient y2="1319.9257" x2="876.95422" y1="1033.0128" x1="1475.4565" gradientUnits="userSpaceOnUse" id="linearGradient3814" xlink:href="#linearGradient3731" inkscape:collect="always"/>
+  </defs>
+  <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.35" inkscape:cx="409.38989" inkscape:cy="-194.24775" inkscape:document-units="px" inkscape:current-layer="layer1" showgrid="false"/>
+  <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(34.389891,-12.324226)">
+    <g inkscape:transform-center-y="-77.522963" inkscape:transform-center-x="-21.112732" style="fill:url(#linearGradient3737);fill-opacity:1" transform="matrix(-0.21534666,-0.38727626,0.38727626,-0.21534666,-22.568987,851.18938)" id="g3727">
+      <path d="m 1519.1253,921.97391 c 1.5263,1.89879 58.968,135.42389 -20.7176,278.72929 -95.6499,172.0153 -282.3848,173.492 -286.3294,171.2986 l 0.7739,69.1982 -124.45,-153.2 125,-149 0,80.3108 c 3.1972,-0.1207 99.3148,-0.5026 151.8763,-92.6355 34.47,-60.421 18.9219,-124.7238 18.5012,-126.6267 l 98.9193,17.4404 36.4263,-95.51509 z" style="fill:url(#linearGradient3814);fill-opacity:1;fill-rule:evenodd;stroke:none" id="path3729" sodipodi:nodetypes="cscccccsccc"/>
+    </g>
+    <g id="g3739" transform="matrix(0.44306441,0.00714245,-0.00714245,0.44306441,-407.80472,-309.09273)" style="fill:url(#linearGradient3745);fill-opacity:1" inkscape:transform-center-x="-46.541043" inkscape:transform-center-y="64.342553">
+      <path sodipodi:nodetypes="cscccccsccc" id="path3741" style="fill:url(#linearGradient3743);fill-opacity:1;fill-rule:evenodd;stroke:none" d="m 1519.1253,921.97391 c 1.5263,1.89879 58.968,135.42389 -20.7176,278.72929 -95.6499,172.0153 -282.3848,173.492 -286.3294,171.2986 l 0.7739,69.1982 -124.45,-153.2 125,-149 0,80.3108 c 3.1972,-0.1207 99.3148,-0.5026 151.8763,-92.6355 34.47,-60.421 18.9219,-124.7238 18.5012,-126.6267 l 98.9193,17.4404 36.4263,-95.51509 z"/>
+    </g>
+    <g inkscape:transform-center-y="21.564513" inkscape:transform-center-x="89.760961" style="fill:url(#linearGradient3753);fill-opacity:1" transform="matrix(-0.22771775,0.38013381,-0.38013381,-0.22771775,789.64693,-62.575598)" id="g3747">
+      <path d="m 1519.1253,921.97391 c 1.5263,1.89879 58.968,135.42389 -20.7176,278.72929 -95.6499,172.0153 -282.3848,173.492 -286.3294,171.2986 l 0.7739,69.1982 -124.45,-153.2 125,-149 0,80.3108 c 3.1972,-0.1207 99.3148,-0.5026 151.8763,-92.6355 34.47,-60.421 18.9219,-124.7238 18.5012,-126.6267 l 98.9193,17.4404 36.4263,-95.51509 z" style="fill:url(#linearGradient3751);fill-opacity:1;fill-rule:evenodd;stroke:none" id="path3749" sodipodi:nodetypes="cscccccsccc"/>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Open Clip Art Library</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Three Circular Interlocking Arrows</dc:title>
+        <dc:date>2010-08-20T20:32:23</dc:date>
+        <dc:description>Three arrows interlocking in a circular pattern.</dc:description>
+        <dc:source>http://openclipart.org/detail/81661/three-circular-interlocking-arrows-by-jobrad</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>JoBrad</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>circular</rdf:li>
+            <rdf:li>arrows</rdf:li>
+            <rdf:li>arrow</rdf:li>
+            <rdf:li>circle</rdf:li>
+            <rdf:li>interlocking</rdf:li>
+            <rdf:li>rotate</rdf:li>
+            <rdf:li>rotating</rdf:li>
+            <rdf:li>rotation</rdf:li>
+            <rdf:li>symbol</rdf:li>
+            <rdf:li>shape</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
