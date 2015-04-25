@@ -171,6 +171,7 @@ module.exports = function (grunt) {
                 files: {
                     './temp/scripts/libs/': './src/scripts/libs/',
                     './temp/img/': './src/img/',
+                    './temp/favicon.ico': './src/favicon.ico',
                     './temp/font/': './src/font/',
                     './temp/google7cb1f653b4fd6f89.html': './src/google7cb1f653b4fd6f89.html',
                     './temp/sitemap.xml': './src/sitemap.xml',
