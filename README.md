@@ -1,5 +1,5 @@
 # angular-www
-[Buildbot marketing website](http://buildbot.net) built with CoffeeScript and AngularJS.
+[Buildbot marketing website](http://buildbot.net) built with CoffeeScript and AngularJS. [![Dependency Status](https://david-dm.org/buildbot/buildbot-website.svg)](https://david-dm.org/buildbot/buildbot-website) [![devDependency Status](https://david-dm.org/buildbot/buildbot-website/dev-status.svg)](https://david-dm.org/buildbot/buildbot-website#info=devDependencies)
 
 ## Building
 
