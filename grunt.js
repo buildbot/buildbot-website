@@ -198,7 +198,6 @@ module.exports = function (grunt) {
                     './built/img/': './temp/img/',
                     './built/font/': './temp/font/',
                     './built/scripts/': './temp/scripts/scripts.min.js',
-                    './built/scripts/libs': './temp/scripts/libs/html5shiv-printshiv.js',
                     './built/styles/': './temp/styles/styles.min.css',
                     './built/google7cb1f653b4fd6f89.html': './temp/google7cb1f653b4fd6f89.html',
                     './built/sitemap.xml': './temp/sitemap.xml',
