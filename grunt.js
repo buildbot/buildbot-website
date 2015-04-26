@@ -194,6 +194,7 @@ module.exports = function (grunt) {
             */
             prod: {
                 files: {
+                    './built/favicon.ico': './temp/favicon.ico',
                     './built/img/': './temp/img/',
                     './built/font/': './temp/font/',
                     './built/scripts/': './temp/scripts/scripts.min.js',
