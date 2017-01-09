@@ -13,7 +13,8 @@ images-png: $(PNGS)
 # "PT Sans" font can be downloaded from developer official site:
 # <http://www.paratype.com/public/> or from Google Fonts collection.
 %.png: %_src.svg
-	inkscape -b white --export-png $@ $<
+	inkscape -w 660 -h 314 --export-png $@ $<
 	mogrify -trim +repage $@
+	optipng $@
 clean:
 	rm -f $(PNGS)
