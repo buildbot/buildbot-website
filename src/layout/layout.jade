@@ -14,6 +14,7 @@ html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
     case self.environment || 'prod'
       when 'prod'
          link(rel='stylesheet', href='styles/styles.min.css?_#{(new Date()).getTime()}')
+         include ../include/analytics
       default
          link(rel='stylesheet', href='styles/styles.css')
          //- automatic reload support. in "grunt dev" mode, page reload automatically
