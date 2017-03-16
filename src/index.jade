@@ -1,14 +1,10 @@
-extends layout/layout
-include include/buttons
-include include/triptych
-include include/subpage
+extends _include/layout
 
 block content
-  // fluid container
   .ribbon-holder.right.hidden-phone
       a.ribbon.red(href="https://github.com/buildbot/buildbot")
           span.text Fork me on GitHub!
-  header.jumbotron.subhead(ng-controller="smoothScroll")
+  header.jumbotron.subhead
     .container
       h1 Buildbot
       p.lead The Continuous Integration Framework
@@ -22,25 +18,31 @@ block content
           li: +twitter
           li: +plus
   .container.subpage
-    +triptych
-      +triptych-panel
+    +carousel('main', 3)
+      +carousel-panel(0)
+       img(src="img/screenshoot1.png")
+       .carousel-caption
         h3 Buildbot Basics
         p.
           Buildbot is an <strong>open-source</strong> framework for automating
           software build, test, and release processes.
         a.btn.btn-primary(href="#basics") Learn more
 
-      +triptych-panel
+      +carousel-panel(1)
+       img(src="img/screenshoot2.png")
+       .carousel-caption
         h3 Automated Build, Test, and Release
         p Buildbot can automate all aspects of the software development cycle:
-          ul
-            li Continuous Integration
-            li Continuous Deployment
-            li Release Management
-          | ..and any other process you can imagine.
+        p 
+          | Continuous Integration, 
+          | Continuous Deployment, 
+          | Release Management
+        p ..and any other process you can imagine.
         a.btn.btn-primary(href="#automation") Learn more
 
-      +triptych-panel
+      +carousel-panel(2)
+       img(src="img/screenshoot3.png")
+       .carousel-caption
         h3 A Framework with Batteries Included
         p.
           Buildbot is a framework in which <strong>you</strong>
@@ -79,9 +81,9 @@ block content
       |  for a gentle introduction to running and configuring Buildbot.
 
   +subpage("light", "automation")
-    .span3
-      img(src='img/arrows_3_circular_interlocking.svg')
-    .span9
+    .col-xs-3
+      img(src='img/arrows_3_circular_interlocking.svg', style="width:90%")
+    .col-xs-9
       h1 Automated Build, Test, and Release
       p.well.
         Buildbot supports not just continuous-integration testing, but automation of complex build systems, application deployment, and management of sophisticated software-release processes.
@@ -104,7 +106,7 @@ block content
         When automated with a tool like Buildbot, all of this occurs repeatably and efficiently.
 
   +subpage("dark", "framework")
-    .span9
+    .col-xs-9
       h1 A Framework with Batteries Included
 
       p.well.
@@ -121,5 +123,5 @@ block content
         Buildbot's design allows your installation to grow with your requirements, beginning with simple processes and growing to meet your unique needs.
         This flexibility has led to its use in a number of high-profile open-source projects, including [Chromium, WebKit, Firefox, Python, and Twisted](http://trac.buildbot.net/wiki/SuccessStories).
 
-    .span3
-      img(src="img/nut.png")
+    .col-xs-3
+      img(src="img/nut.png", style="width:90%")
