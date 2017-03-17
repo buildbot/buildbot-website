@@ -7,10 +7,15 @@ mixin github-fork
         allowtransparency="true",frameborder="0",scrolling="0",width="100px",height="20px")
 
 mixin pypi-version-badge
-    img(src="https://img.shields.io/pypi/v/buildbot.svg")
+    a(href="https://pypi.python.org/pypi/buildbot")
+        img(src="https://img.shields.io/pypi/v/buildbot.svg")
 
-mixin pypi-downloads-badge
-    img(src="https://img.shields.io/pypi/dm/buildbot.svg")
+mixin codecov-badge
+    a(href="http://codecov.io/github/buildbot/buildbot?branch=master")
+        img(src="http://codecov.io/github/buildbot/buildbot/coverage.svg?branch=master")
+mixin doc-badge
+    a(href="https://docs.buildbot.net")
+        img(src="https://readthedocs.org/projects/buildbot/badge/?version=latest")
 
 mixin twitter
     iframe(allowtransparency="true",frameborder="0",scrolling="no",
