@@ -1,13 +1,11 @@
-extends layout/layout
-include include/buttons
-include include/triptych
-include include/subpage
+extends _include/layout
 
 block content
     .container-fluid
-        .span4
+      .row
+        .col-xs-4
             img(src="img/nut.png", style="width: 90%")
-        .span8
+        .col-xs-8
             :markdown
                 Contact Us
                 ==========
@@ -20,7 +18,7 @@ block content
                  * The [buildbot mailing list](https://lists.buildbot.net/mailman/listinfo/users)
                  * The [#buildbot](http://webchat.freenode.net/?channels=%23buildbot) IRC channel on Freenode
                  * The [project organization](https://github.com/buildbot) on Github
-                 * The Buildbot [issue tracker](http://trac.buildbot.net)
+                 * The Buildbot [issue tracker](https://github.com/buildbot/buildbot/issues)
 
                 For Security Issues
                 -------------------

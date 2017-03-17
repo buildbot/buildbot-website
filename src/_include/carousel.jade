@@ -1,0 +1,24 @@
+mixin icon(name)
+	span.glyphicon(class="glyphicon-#{name}",aria-hidden="true")
+
+//- carousel
+mixin carousel(id,num_items)
+	.carousel.slide(id="carousel-#{id}",data-ride="carousel", style="height:400px")
+		//- Indicators
+		ol.carousel-indicators
+			- for(var index = 0; index < num_items; index++)
+				if(index === 0)
+					li.active(data-target="#carousel-#{id}", data-slide-to="#{index}")
+				else
+					li(data-target="#carousel-#{id}", data-slide-to="#{index}")
+		//- Wrapper for slides
+		.carousel-inner(role="listbox")
+			block
+
+mixin carousel-panel(index)
+	if(index === 0)
+		.item.active
+			block
+	else
+		.item
+			block

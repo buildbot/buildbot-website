@@ -1,13 +1,11 @@
-extends layout/layout
-include include/buttons
-include include/triptych
-include include/subpage
+extends _include/layout
 
 block content
     .container-fluid
-        .span4
-            img(src="img/nut.png", style="width: 90%")
-        .span8
+      .row
+        .col-xs-4
+            img(src="img/nut.png", style="width:90%")
+        .col-xs-8
             :markdown
                 About Us
                 ========
