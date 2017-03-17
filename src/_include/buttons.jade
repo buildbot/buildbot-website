@@ -1,18 +1,18 @@
 mixin github-watch
-    iframe.github-btn(src="https://ghbtns.com/github-btn.html?user=buildbot&repo=buildbot&type=watch&count=true",
-        allowtransparency="true",frameborder="0",scrolling="0",width="100px",height="20px")
+    a(href="https://github.com/buildbot/buildbot/")
+        img(src="https://img.shields.io/github/watchers/buildbot/buildbot.svg?style=social&label=Watch")
 
 mixin github-fork
-    iframe.github-btn(src="https://ghbtns.com/github-btn.html?user=buildbot&repo=buildbot&type=fork&count=true",
-        allowtransparency="true",frameborder="0",scrolling="0",width="100px",height="20px")
+    a(href="https://github.com/buildbot/buildbot/")
+        img(src="https://img.shields.io/github/forks/buildbot/buildbot.svg?style=social&label=Fork")
 
 mixin pypi-version-badge
     a(href="https://pypi.python.org/pypi/buildbot")
         img(src="https://img.shields.io/pypi/v/buildbot.svg")
 
 mixin codecov-badge
-    a(href="http://codecov.io/github/buildbot/buildbot?branch=master")
-        img(src="http://codecov.io/github/buildbot/buildbot/coverage.svg?branch=master")
+    a(href="https://codecov.io/github/buildbot/buildbot?branch=master")
+        img(src="https://codecov.io/github/buildbot/buildbot/coverage.svg?branch=master")
 mixin doc-badge
     a(href="https://docs.buildbot.net")
         img(src="https://readthedocs.org/projects/buildbot/badge/?version=latest")
