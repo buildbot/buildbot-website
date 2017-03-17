@@ -10,6 +10,8 @@ killgroup () {
   kill 0
 }
 
-harp server src &
-livereloadx --include '**/*.{jade,less}' &
+dir=$(dirname "${BASH_SOURCE[0]}")
+
+$dir/node_modules/harp/bin/harp server src &
+$dir/node_modules/livereloadx/bin/livereloadx.js --include '**/*.{jade,less}' &
 wait
