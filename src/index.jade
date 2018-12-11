@@ -18,6 +18,12 @@ block content
           li: +doc-badge
           li: +twitter
           li: +plus
+  .alert.alert-danger.text-center
+    h4
+      span.glyphicon.glyphicon-exclamation-sign
+      | Buildbot is dropping support for Python 2.7. Users are encouraged to migrate to Python 3 as soon as possible.
+    h4
+      a(href="https://github.com/buildbot/buildbot/issues/4439") More info
   .container.subpage
     +carousel('main', 3)
       +carousel-panel(0)
