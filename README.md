@@ -4,6 +4,9 @@ harp is a simple static website generator built on [nodejs](https://nodejs.org/e
 
 You will shall install nodejs and [yarn](https://yarnpkg.com/lang/en/)
 
+Node.js is an open source server environment. It runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)
+Node.js uses JavaScript on the server
+
 ## Building
 
     yarn install
