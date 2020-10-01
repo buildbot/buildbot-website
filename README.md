@@ -4,14 +4,14 @@ harp is a simple static website generator built on [nodejs](https://nodejs.org/e
 
 You have to install nodejs and [yarn](https://yarnpkg.com/lang/en/)
 
-## Building
+> * ## Building
 
     yarn install
 
-## develop with live reload
+> * ## develop with live reload
 
     yarn run dev
 
-## compile the static website
+> * ## compile the static website
 
     yarn run compile
