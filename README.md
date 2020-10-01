@@ -15,3 +15,7 @@ You have to install nodejs and [yarn](https://yarnpkg.com/lang/en/)
 ## compile the static website
 
     yarn run compile
+
+## Your app is Ready 
+
+Thanku
