@@ -1,5 +1,7 @@
 [Buildbot marketing website](https://buildbot.net) built [harp](http://harpjs.com/)
 
+Harp - an Amazing a Static Website generator
+
 harp is a simple static website generator built on [nodejs](https://nodejs.org/en/)
 
 You have to install nodejs and [yarn](https://yarnpkg.com/lang/en/)
