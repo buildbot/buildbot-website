@@ -6,7 +6,7 @@ You have to install nodejs and [yarn](https://yarnpkg.com/lang/en/)
 
 ## Building
 
-    yarn install
+    First Install Yarn.
 
 ## develop with live reload
 
