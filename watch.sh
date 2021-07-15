@@ -12,6 +12,6 @@ killgroup () {
 
 dir=$(dirname "${BASH_SOURCE[0]}")
 
-$dir/node_modules/harp/bin/harp server src &
-$dir/node_modules/livereloadx/bin/livereloadx.js --include '**/*.{jade,less}' &
+$dir/node_modules/harp/bin/harp src &
+node $dir/node_modules/livereloadx/bin/livereloadx.js --include '**/*.{jade,less}' &
 wait

@@ -3,7 +3,7 @@ mixin icon(name)
 
 //- carousel
 mixin carousel(id,num_items)
-	.carousel.slide(id="carousel-#{id}",data-ride="carousel", style="height:400px")
+	.carousel(id="carousel-#{id}",data-ride="carousel", style="height:400px")
 		//- Indicators
 		ol.carousel-indicators
 			- for(var index = 0; index < num_items; index++)
