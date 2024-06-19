@@ -11,7 +11,7 @@ images-png: $(PNGS)
 # "Myriad Pro" font, "PT Sans" was chosen to replace it due to its visual
 # similarity).
 # "PT Sans" font can be downloaded from developer official site:
-# <http://www.paratype.com/public/> or from Google Fonts collection.
+# <https://www.paratype.com/public/> or from Google Fonts collection.
 %.png: %_src.svg
 	inkscape -w 660 -h 314 --export-png $@ $<
 	mogrify -trim +repage $@

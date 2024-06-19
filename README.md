@@ -1,4 +1,4 @@
-[Buildbot marketing website](https://buildbot.net) built [harp](http://harpjs.com/)
+[Buildbot marketing website](https://buildbot.net) built [harp](https://harpjs.com/)
 
 harp is a simple static website generator built on [nodejs](https://nodejs.org/en/)
 
