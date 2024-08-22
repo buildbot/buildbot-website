@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "./watch.sh",
+    "dev": "sh ./watch.sh",
     "compile": "harp src dist"
   },
   "devDependencies": {
