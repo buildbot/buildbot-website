@@ -4,7 +4,7 @@ include buttons
 include triptych
 include subpage
 doctype html
-html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
+html.no-js(xmlns:ng='https://angularjs.org', xmlns:app='ignored')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
@@ -31,15 +31,14 @@ html.no-js(xmlns:ng='http://angularjs.org', xmlns:app='ignored')
             +nav_item('https://buildbot.buildbot.net') Metabuildbot: Buildbot's Buildbot
         +nav_item_dropdown("#")(label="Get Started")
             +nav_item('https://docs.buildbot.net/current/tutorial/index.html') Follow the Tutorial
-            +nav_item('https://docs.buildbot.net/current/') Read the Docs
-            +nav_item('http://docs.buildbot.net/current/manual/installation/installation.html') Download and Install
-            li.divider
+            +nav_item('https://docs.buildbot.net/current/index.html') Read the Docs
+            +nav_item('https://docs.buildbot.net/current/manual/installation/installation.html') Download and Install
         +nav_item_dropdown("#")(label="Get Involved")
             +nav_item('https://lists.buildbot.net/mailman/listinfo') Join the Mailing List
             +nav_item('https://web.libera.chat/?channels=#buildbot') ..or #buildbot on IRC
             li.divider
-            +nav_item('http://github.com/buildbot/buildbot') Get the Source
-            +nav_item('http://docs.buildbot.net/current/developer/tests.html#quick-start') Get Started Hacking
-            +nav_item('http://github.com/buildbot/buildbot/issues') File or Fix a Bug
+            +nav_item('https://github.com/buildbot/buildbot') Get the Source
+            +nav_item('https://docs.buildbot.net/current/developer/tests.html#quick-start') Get Started Hacking
+            +nav_item('https://github.com/buildbot/buildbot/issues') File or Fix a Bug
         +nav_item("https://medium.com/buildbot") Blog
     block content
